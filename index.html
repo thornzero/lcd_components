@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCD Components - Design System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="title">LCD Components Design System</h1>
+            <p class="subtitle">A simple and elegant vanilla HTML/CSS/JS toolkit</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <ul class="nav-list">
+                <li><a href="#typography">Typography</a></li>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#buttons">Buttons</a></li>
+                <li><a href="#layout">Layout</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#interactive">Interactive</a></li>
+            </ul>
+        </nav>
+
+        <!-- Typography Section -->
+        <section id="typography" class="section">
+            <h2 class="section-title">Typography</h2>
+            <div class="component-grid">
+                <div class="component-item">
+                    <h3 class="component-label">Headings</h3>
+                    <div class="component-example">
+                        <h1>Heading 1 - 2.5rem (40px)</h1>
+                        <h2>Heading 2 - 2rem (32px)</h2>
+                        <h3>Heading 3 - 1.5rem (24px)</h3>
+                        <h4>Heading 4 - 1.25rem (20px)</h4>
+                        <h5>Heading 5 - 1.125rem (18px)</h5>
+                        <h6>Heading 6 - 1rem (16px)</h6>
+                    </div>
+                    <div class="spacing-note">Margin: 0 0 1rem 0</div>
+                </div>
+
+                <div class="component-item">
+                    <h3 class="component-label">Text Elements</h3>
+                    <div class="component-example">
+                        <p>This is a paragraph with <strong>bold text</strong>, <em>italic text</em>, and <u>underlined text</u>.</p>
+                        <p>This paragraph contains <mark>highlighted text</mark> and <code>inline code</code>.</p>
+                        <blockquote>
+                            "This is a blockquote element. It represents content that is quoted from another source."
+                            <cite>- Citation Source</cite>
+                        </blockquote>
+                        <p><small>This is small text</small></p>
+                        <p><del>Deleted text</del> and <ins>inserted text</ins></p>
+                        <p><sub>Subscript</sub> and <sup>Superscript</sup></p>
+                    </div>
+                    <div class="spacing-note">Line height: 1.6 | Paragraph margin: 0 0 1rem 0</div>
+                </div>
+
+                <div class="component-item">
+                    <h3 class="component-label">Lists</h3>
+                    <div class="component-example">
+                        <ul>
+                            <li>Unordered list item 1</li>
+                            <li>Unordered list item 2
+                                <ul>
+                                    <li>Nested item 1</li>
+                                    <li>Nested item 2</li>
+                                </ul>
+                            </li>
+                            <li>Unordered list item 3</li>
+                        </ul>
+
+                        <ol>
+                            <li>Ordered list item 1</li>
+                            <li>Ordered list item 2</li>
+                            <li>Ordered list item 3</li>
+                        </ol>
+
+                        <dl>
+                            <dt>Definition Term</dt>
+                            <dd>Definition description goes here</dd>
+                            <dt>Another Term</dt>
+                            <dd>Another definition description</dd>
+                        </dl>
+                    </div>
+                    <div class="spacing-note">List padding: 0 0 0 1.5rem | Item margin: 0.25rem 0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forms Section -->
+        <section id="forms" class="section">
+            <h2 class="section-title">Form Elements</h2>
+            <div class="component-grid">
+                <div class="component-item">
+                    <h3 class="component-label">Input Fields</h3>
+                    <div class="component-example">
+                        <form class="form-example">
+                            <div class="form-group">
+                                <label for="text-input">Text Input</label>
+                                <input type="text" id="text-input" placeholder="Enter text here">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email-input">Email Input</label>
+                                <input type="email" id="email-input" placeholder="email@example.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password-input">Password Input</label>
+                                <input type="password" id="password-input" placeholder="Password">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="number-input">Number Input</label>
+                                <input type="number" id="number-input" placeholder="123">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="date-input">Date Input</label>
+                                <input type="date" id="date-input">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="spacing-note">Input height: 2.5rem | Padding: 0.5rem 0.75rem | Margin: 0.5rem 0</div>
+                </div>
+
+                <div class="component-item">
+                    <h3 class="component-label">Selection Elements</h3>
+                    <div class="component-example">
+                        <div class="form-group">
+                            <label for="select-input">Select Dropdown</label>
+                            <select id="select-input">
+                                <option value="">Choose an option</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Radio Buttons</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="radio-example" value="radio1">
+                                    <span class="radio-text">Radio Option 1</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="radio-example" value="radio2">
+                                    <span class="radio-text">Radio Option 2</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Checkboxes</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="check1">
+                                    <span class="checkbox-text">Checkbox Option 1</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="check2">
+                                    <span class="checkbox-text">Checkbox Option 2</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="textarea-input">Textarea</label>
+                            <textarea id="textarea-input" rows="4" placeholder="Enter multiple lines of text here..."></textarea>
+                        </div>
+                    </div>
+                    <div class="spacing-note">Radio/Checkbox margin: 0.25rem | Textarea min-height: 6rem</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buttons Section -->
+        <section id="buttons" class="section">
+            <h2 class="section-title">Buttons & Interactive Elements</h2>
+            <div class="component-grid">
+                <div class="component-item">
+                    <h3 class="component-label">Button Variants</h3>
+                    <div class="component-example">
+                        <button class="btn btn-primary">Primary Button</button>
+                        <button class="btn btn-secondary">Secondary Button</button>
+                        <button class="btn btn-outline">Outline Button</button>
+                        <button class="btn btn-ghost">Ghost Button</button>
+                        <button class="btn btn-danger">Danger Button</button>
+                        <button class="btn" disabled>Disabled Button</button>
+                    </div>
+                    <div class="spacing-note">Button height: 2.5rem | Padding: 0.5rem 1rem | Margin: 0.25rem</div>
+                </div>
+
+                <div class="component-item">
+                    <h3 class="component-label">Button Sizes</h3>
+                    <div class="component-example">
+                        <button class="btn btn-primary btn-small">Small</button>
+                        <button class="btn btn-primary btn-medium">Medium</button>
+                        <button class="btn btn-primary btn-large">Large</button>
+                    </div>
+                    <div class="spacing-note">Small: 2rem | Medium: 2.5rem | Large: 3rem</div>
+                </div>
+
+                <div class="component-item">
+                    <h3 class="component-label">Links</h3>
+                    <div class="component-example">
+                        <p>This is a <a href="#" class="link">standard link</a> in text.</p>
+                        <p>This is a <a href="#" class="link link-subtle">subtle link</a> in text.</p>
+                        <p>This is a <a href="#" class="link link-bold">bold link</a> in text.</p>
+                    </div>
+                    <div class="spacing-note">Link padding: 0.125rem | Hover transition: 0.2s</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout Section -->
+        <section id="layout" class="section">
+            <h2 class="section-title">Layout Elements</h2>
+            <div class="component-grid">
+                <div class="component-item">
+                    <h3 class="component-label">Cards</h3>
+                    <div class="component-example">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Card Title</h4>
+                            </div>
+                            <div class="card-body">
+                                <p>This is the card content. Cards are flexible containers with consistent padding and styling.</p>
+                                <button class="btn btn-primary">Action</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacing-note">Card padding: 1.5rem | Border radius: 0.5rem | Shadow: 0 2px 4px rgba(0,0,0,0.1)</div>
+                </div>
+
+                <div class="component-item">
+                    <h3 class="component-label">Tables</h3>
+                    <div class="component-example">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>City</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>30</td>
+                                    <td>New York</td>
+                                    <td><button class="btn btn-small">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>25</td>
+                                    <td>Los Angeles</td>
+                                    <td><button class="btn btn-small">Edit</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="spacing-note">Cell padding: 0.75rem | Border: 1px solid #e5e7eb</div>
+                </div>
+
+                <div class="component-item">
+                    <h3 class="component-label">Grid System</h3>
+                    <div class="component-example">
+                        <div class="grid">
+                            <div class="grid-item">Grid Item 1</div>
+                            <div class="grid-item">Grid Item 2</div>
+                            <div class="grid-item">Grid Item 3</div>
+                            <div class="grid-item">Grid Item 4</div>
+                        </div>
+                    </div>
+                    <div class="spacing-note">Grid gap: 1rem | Min column width: 200px</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media" class="section">
+            <h2 class="section-title">Media Elements</h2>
+            <div class="component-grid">
+                <div class="component-item">
+                    <h3 class="component-label">Images</h3>
+                    <div class="component-example">
+                        <img src="https://via.placeholder.com/300x200/3b82f6/ffffff?text=Placeholder+Image" alt="Placeholder" class="image">
+                        <img src="https://via.placeholder.com/100x100/ef4444/ffffff?text=Avatar" alt="Avatar" class="image image-rounded">
+                    </div>
+                    <div class="spacing-note">Max-width: 100% | Border radius: 0.25rem (rounded: 50%)</div>
+                </div>
+
+                <div class="component-item">
+                    <h3 class="component-label">Figure & Caption</h3>
+                    <div class="component-example">
+                        <figure class="figure">
+                            <img src="https://via.placeholder.com/400x250/10b981/ffffff?text=Figure+Image" alt="Figure" class="image">
+                            <figcaption>This is a figure caption describing the image above.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="spacing-note">Figure margin: 1rem 0 | Caption padding: 0.5rem 0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Section -->
+        <section id="interactive" class="section">
+            <h2 class="section-title">Interactive Components</h2>
+            <div class="component-grid">
+                <div class="component-item">
+                    <h3 class="component-label">Accordion</h3>
+                    <div class="component-example">
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span>Accordion Item 1</span>
+                                    <span class="accordion-icon">+</span>
+                                </button>
+                                <div class="accordion-content">
+                                    <p>This is the content for accordion item 1. It can contain any HTML elements.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <span>Accordion Item 2</span>
+                                    <span class="accordion-icon">+</span>
+                                </button>
+                                <div class="accordion-content">
+                                    <p>This is the content for accordion item 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacing-note">Header padding: 1rem | Content padding: 0 1rem 1rem</div>
+                </div>
+
+                <div class="component-item">
+                    <h3 class="component-label">Modal</h3>
+                    <div class="component-example">
+                        <button class="btn btn-primary" onclick="openModal()">Open Modal</button>
+                        
+                        <div id="modal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>Modal Title</h3>
+                                    <button class="modal-close" onclick="closeModal()">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>This is the modal content. It can contain forms, images, or any other content.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                                    <button class="btn btn-primary">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacing-note">Modal padding: 1.5rem | Max-width: 500px | Backdrop: rgba(0,0,0,0.5)</div>
+                </div>
+
+                <div class="component-item">
+                    <h3 class="component-label">Progress & Meter</h3>
+                    <div class="component-example">
+                        <div class="progress-group">
+                            <label>Progress Bar (70%)</label>
+                            <progress class="progress" value="70" max="100">70%</progress>
+                        </div>
+                        
+                        <div class="progress-group">
+                            <label>Meter (0.6 of 1.0)</label>
+                            <meter class="meter" value="0.6" min="0" max="1">60%</meter>
+                        </div>
+                    </div>
+                    <div class="spacing-note">Height: 1rem | Border radius: 0.5rem | Margin: 0.5rem 0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacing Guide -->
+        <section class="section">
+            <h2 class="section-title">Spacing & Layout Guide</h2>
+            <div class="spacing-guide">
+                <div class="spacing-example">
+                    <h3>Standard Spacing Scale</h3>
+                    <div class="spacing-scale">
+                        <div class="spacing-item" data-size="0.25rem">0.25rem (4px)</div>
+                        <div class="spacing-item" data-size="0.5rem">0.5rem (8px)</div>
+                        <div class="spacing-item" data-size="0.75rem">0.75rem (12px)</div>
+                        <div class="spacing-item" data-size="1rem">1rem (16px)</div>
+                        <div class="spacing-item" data-size="1.25rem">1.25rem (20px)</div>
+                        <div class="spacing-item" data-size="1.5rem">1.5rem (24px)</div>
+                        <div class="spacing-item" data-size="2rem">2rem (32px)</div>
+                        <div class="spacing-item" data-size="2.5rem">2.5rem (40px)</div>
+                        <div class="spacing-item" data-size="3rem">3rem (48px)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 LCD Components Design System. Built with vanilla HTML, CSS, and JavaScript.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
