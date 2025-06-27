@@ -89,6 +89,11 @@
   --glass-border-width: 1px;
   --lcd-glow: 0 0 20px rgba(45, 55, 72, 0.1);
   
+  /* Floating Text Effects */
+  --text-shadow-float: 0 1px 2px rgba(45, 55, 72, 0.1);
+  --text-shadow-float-strong: 0 2px 4px rgba(45, 55, 72, 0.15);
+  --component-float: 0 1px 3px rgba(45, 55, 72, 0.08);
+  
   /* Transitions */
   --transition: all 0.2s ease-in-out;
 }
@@ -266,22 +271,42 @@ body::before {
   opacity: 1;
 }
 
-/* Typography */
+/* Typography - Floating Text Style */
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 var(--space-4) 0;
   font-weight: 600;
   line-height: 1.2;
+  text-shadow: var(--text-shadow-float-strong);
 }
 
-h1 { font-size: var(--text-4xl); }
-h2 { font-size: var(--text-3xl); }
-h3 { font-size: var(--text-2xl); }
-h4 { font-size: var(--text-xl); }
-h5 { font-size: var(--text-lg); }
-h6 { font-size: var(--text-base); }
+h1 { 
+  font-size: var(--text-4xl);
+  text-shadow: var(--text-shadow-float-strong);
+}
+h2 { 
+  font-size: var(--text-3xl);
+  text-shadow: var(--text-shadow-float-strong);
+}
+h3 { 
+  font-size: var(--text-2xl);
+  text-shadow: var(--text-shadow-float);
+}
+h4 { 
+  font-size: var(--text-xl);
+  text-shadow: var(--text-shadow-float);
+}
+h5 { 
+  font-size: var(--text-lg);
+  text-shadow: var(--text-shadow-float);
+}
+h6 { 
+  font-size: var(--text-base);
+  text-shadow: var(--text-shadow-float);
+}
 
 p {
   margin: 0 0 var(--space-4) 0;
+  text-shadow: var(--text-shadow-float);
 }
 
 strong {
@@ -400,6 +425,7 @@ dd {
   color: var(--gray-800);
   margin-bottom: var(--space-4);
   font-size: var(--text-lg);
+  text-shadow: var(--text-shadow-float);
 }
 
 .component-example {
@@ -454,6 +480,7 @@ dd {
   margin-bottom: var(--space-2);
   font-weight: 500;
   color: var(--gray-700);
+  text-shadow: var(--text-shadow-float);
 }
 
 input[type="text"],
@@ -470,6 +497,8 @@ textarea {
   font-size: var(--text-base);
   transition: var(--transition);
   background-color: var(--white);
+  text-shadow: var(--text-shadow-float);
+  box-shadow: var(--component-float);
 }
 
 input:focus,
@@ -506,6 +535,7 @@ textarea {
 .radio-text,
 .checkbox-text {
   user-select: none;
+  text-shadow: var(--text-shadow-float);
 }
 
 /* Buttons - LCD Glass Style */
@@ -530,6 +560,8 @@ textarea {
   margin: var(--space-1);
   position: relative;
   overflow: hidden;
+  text-shadow: var(--text-shadow-float);
+  box-shadow: var(--component-float);
 }
 
 .btn:hover {
@@ -647,6 +679,7 @@ textarea {
   color: var(--primary);
   text-decoration: underline;
   transition: var(--transition);
+  text-shadow: var(--text-shadow-float);
 }
 
 .link:hover {
@@ -726,6 +759,7 @@ textarea {
   padding: var(--space-3) var(--space-4);
   text-align: left;
   border-bottom: 1px solid var(--gray-200);
+  text-shadow: var(--text-shadow-float);
 }
 
 .table th {
@@ -918,6 +952,7 @@ textarea {
   margin-bottom: var(--space-2);
   font-weight: 500;
   color: var(--gray-700);
+  text-shadow: var(--text-shadow-float);
 }
 
 .progress,
@@ -927,20 +962,55 @@ textarea {
   border-radius: var(--radius-md);
   border: none;
   background-color: var(--gray-200);
+  box-shadow: var(--component-float);
 }
 
 .progress::-webkit-progress-bar {
-  background-color: var(--gray-200);
+  background-color: var(--slate-200);
   border-radius: var(--radius-md);
 }
 
 .progress::-webkit-progress-value {
-  background-color: var(--primary);
+  background: linear-gradient(135deg, var(--slate-700), var(--slate-600));
   border-radius: var(--radius-md);
 }
 
 .progress::-moz-progress-bar {
-  background-color: var(--primary);
+  background: linear-gradient(135deg, var(--slate-700), var(--slate-600));
+  border-radius: var(--radius-md);
+}
+
+/* Meter Element Styling */
+.meter {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.meter::-webkit-meter-bar {
+  background-color: var(--slate-200);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+}
+
+.meter::-webkit-meter-optimum-value {
+  background: linear-gradient(135deg, var(--slate-700), var(--slate-600));
+  border-radius: var(--radius-md);
+}
+
+.meter::-webkit-meter-suboptimum-value {
+  background: linear-gradient(135deg, var(--slate-600), var(--slate-500));
+  border-radius: var(--radius-md);
+}
+
+.meter::-webkit-meter-even-less-good-value {
+  background: linear-gradient(135deg, var(--slate-800), var(--slate-700));
+  border-radius: var(--radius-md);
+}
+
+/* Firefox meter styling */
+.meter::-moz-meter-bar {
+  background: linear-gradient(135deg, var(--slate-700), var(--slate-600));
   border-radius: var(--radius-md);
 }
 
@@ -979,6 +1049,7 @@ textarea {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--gray-700);
+  text-shadow: var(--text-shadow-float);
 }
 
 .spacing-item::before {
@@ -1009,6 +1080,7 @@ textarea {
   border-top: 1px solid var(--gray-200);
   color: var(--gray-600);
   margin-top: var(--space-12);
+  text-shadow: var(--text-shadow-float);
 }
 
 /* Form Error States */
