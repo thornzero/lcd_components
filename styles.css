@@ -1,5 +1,12 @@
 /* ========================================
    LCD Components Design System - CSS
+   ========================================
+   
+   GLOBAL ELEVATION CONTROL:
+   Change the --component-elevation variable (line 84) to adjust all floating heights at once:
+   • 0.5 = minimal floating effect
+   • 1 = normal (default)
+   • 2 = dramatic floating effect
    ======================================== */
 
 /* CSS Custom Properties (Variables) */
@@ -77,22 +84,25 @@
   --radius-lg: 0.75rem;
   --radius-full: 9999px;
   
-  /* LCD Floating Shadows - Pronounced Depth */
-  --shadow-sm: 0 2px 4px 0 rgba(45, 55, 72, 0.3);
-  --shadow: 0 4px 8px 0 rgba(45, 55, 72, 0.25), 0 2px 4px 0 rgba(45, 55, 72, 0.15);
-  --shadow-md: 0 6px 12px 0 rgba(45, 55, 72, 0.3), 0 3px 6px 0 rgba(45, 55, 72, 0.2);
-  --shadow-lg: 0 8px 16px 0 rgba(45, 55, 72, 0.35), 0 4px 8px 0 rgba(45, 55, 72, 0.25);
-  --shadow-glass: 0 12px 24px 0 rgba(45, 55, 72, 0.4), 0 6px 12px 0 rgba(45, 55, 72, 0.3);
+  /* LCD Floating Shadows - Dynamic Elevation */
+  --shadow-sm: 0 calc(2px * var(--component-elevation)) calc(4px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.3);
+  --shadow: 0 calc(4px * var(--component-elevation)) calc(8px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.25), 0 calc(2px * var(--component-elevation)) calc(4px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.15);
+  --shadow-md: 0 calc(6px * var(--component-elevation)) calc(12px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.3), 0 calc(3px * var(--component-elevation)) calc(6px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.2);
+  --shadow-lg: 0 calc(8px * var(--component-elevation)) calc(16px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.35), 0 calc(4px * var(--component-elevation)) calc(8px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.25);
+  --shadow-glass: 0 calc(12px * var(--component-elevation)) calc(24px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.4), 0 calc(6px * var(--component-elevation)) calc(12px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.3);
   
   /* Glass Effects */
   --glass-backdrop: blur(12px);
   --glass-border-width: 3px;
   --lcd-glow: 0 0 20px rgba(45, 55, 72, 0.1);
   
-  /* Floating Text Effects - Pronounced */
-  --text-shadow-float: 0 2px 4px rgba(45, 55, 72, 0.4);
-  --text-shadow-float-strong: 0 3px 6px rgba(45, 55, 72, 0.5);
-  --component-float: 0 3px 6px rgba(45, 55, 72, 0.3);
+  /* Global Component Elevation Control */
+  --component-elevation: 1; /* Adjust this value to control all component heights (0.5 = lower, 2 = higher) */
+  
+  /* Floating Text Effects - Dynamic */
+  --text-shadow-float: 0 calc(2px * var(--component-elevation)) calc(4px * var(--component-elevation)) rgba(45, 55, 72, 0.4);
+  --text-shadow-float-strong: 0 calc(3px * var(--component-elevation)) calc(6px * var(--component-elevation)) rgba(45, 55, 72, 0.5);
+  --component-float: 0 calc(3px * var(--component-elevation)) calc(6px * var(--component-elevation)) rgba(45, 55, 72, 0.3);
   
   /* Transitions */
   --transition: all 0.2s ease-in-out;
@@ -153,9 +163,9 @@ body::before {
   border: var(--glass-border-width) solid var(--glass-border);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 4px 0 rgba(45, 55, 72, 0.4),
-    0 8px 16px rgba(45, 55, 72, 0.3),
-    0 12px 24px rgba(45, 55, 72, 0.15);
+    0 calc(4px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.4),
+    0 calc(8px * var(--component-elevation)) calc(16px * var(--component-elevation)) rgba(45, 55, 72, 0.3),
+    0 calc(12px * var(--component-elevation)) calc(24px * var(--component-elevation)) rgba(45, 55, 72, 0.15);
   position: relative;
   overflow: hidden;
 }
@@ -212,9 +222,9 @@ body::before {
   border-radius: var(--radius-lg);
   border: var(--glass-border-width) solid var(--glass-border);
   box-shadow: 
-    0 4px 0 rgba(45, 55, 72, 0.4),
-    0 8px 16px rgba(45, 55, 72, 0.3),
-    0 12px 24px rgba(45, 55, 72, 0.2);
+    0 calc(4px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.4),
+    0 calc(8px * var(--component-elevation)) calc(16px * var(--component-elevation)) rgba(45, 55, 72, 0.3),
+    0 calc(12px * var(--component-elevation)) calc(24px * var(--component-elevation)) rgba(45, 55, 72, 0.2);
   padding: var(--space-4);
   position: relative;
 }
@@ -412,12 +422,12 @@ dd {
 }
 
 .component-item:hover {
-  transform: translateY(-2px);
+  transform: translateY(calc(-2px * var(--component-elevation)));
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 7px 0 var(--slate-800),
-    0 14px 28px rgba(45, 55, 72, 0.35),
-    0 20px 40px rgba(45, 55, 72, 0.25);
+    0 calc(7px * var(--component-elevation)) 0 var(--slate-800),
+    0 calc(14px * var(--component-elevation)) calc(28px * var(--component-elevation)) rgba(45, 55, 72, 0.35),
+    0 calc(20px * var(--component-elevation)) calc(40px * var(--component-elevation)) rgba(45, 55, 72, 0.25);
 }
 
 .component-item::before {
@@ -573,26 +583,26 @@ textarea {
   text-shadow: var(--text-shadow-float);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 3px 0 var(--slate-800),
-    0 6px 12px rgba(45, 55, 72, 0.3),
-    0 9px 18px rgba(45, 55, 72, 0.2);
+    0 calc(3px * var(--component-elevation)) 0 var(--slate-800),
+    0 calc(6px * var(--component-elevation)) calc(12px * var(--component-elevation)) rgba(45, 55, 72, 0.3),
+    0 calc(9px * var(--component-elevation)) calc(18px * var(--component-elevation)) rgba(45, 55, 72, 0.2);
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(calc(-2px * var(--component-elevation)));
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 5px 0 var(--slate-800),
-    0 10px 20px rgba(45, 55, 72, 0.35),
-    0 15px 30px rgba(45, 55, 72, 0.25);
+    0 calc(5px * var(--component-elevation)) 0 var(--slate-800),
+    0 calc(10px * var(--component-elevation)) calc(20px * var(--component-elevation)) rgba(45, 55, 72, 0.35),
+    0 calc(15px * var(--component-elevation)) calc(30px * var(--component-elevation)) rgba(45, 55, 72, 0.25);
 }
 
 .btn:active {
-  transform: translateY(1px);
+  transform: translateY(calc(1px * var(--component-elevation)));
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 2px 0 var(--slate-800),
-    0 4px 8px rgba(45, 55, 72, 0.2);
+    0 calc(2px * var(--component-elevation)) 0 var(--slate-800),
+    0 calc(4px * var(--component-elevation)) calc(8px * var(--component-elevation)) rgba(45, 55, 72, 0.2);
 }
 
 .btn:disabled {
@@ -608,29 +618,29 @@ textarea {
   border-color: var(--slate-800);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 3px 0 var(--slate-900),
-    0 6px 12px rgba(45, 55, 72, 0.4),
-    0 9px 18px rgba(45, 55, 72, 0.3);
+    0 calc(3px * var(--component-elevation)) 0 var(--slate-900),
+    0 calc(6px * var(--component-elevation)) calc(12px * var(--component-elevation)) rgba(45, 55, 72, 0.4),
+    0 calc(9px * var(--component-elevation)) calc(18px * var(--component-elevation)) rgba(45, 55, 72, 0.3);
   text-shadow: 0 0 4px rgba(240, 255, 240, 0.5);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(calc(-2px * var(--component-elevation)));
   background: var(--slate-800);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 5px 0 var(--slate-900),
-    0 10px 20px rgba(45, 55, 72, 0.45),
-    0 15px 30px rgba(45, 55, 72, 0.35);
+    0 calc(5px * var(--component-elevation)) 0 var(--slate-900),
+    0 calc(10px * var(--component-elevation)) calc(20px * var(--component-elevation)) rgba(45, 55, 72, 0.45),
+    0 calc(15px * var(--component-elevation)) calc(30px * var(--component-elevation)) rgba(45, 55, 72, 0.35);
   text-shadow: 0 0 6px rgba(240, 255, 240, 0.6);
 }
 
 .btn-primary:active {
-  transform: translateY(1px);
+  transform: translateY(calc(1px * var(--component-elevation)));
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 2px 0 var(--slate-900),
-    0 4px 8px rgba(45, 55, 72, 0.3);
+    0 calc(2px * var(--component-elevation)) 0 var(--slate-900),
+    0 calc(4px * var(--component-elevation)) calc(8px * var(--component-elevation)) rgba(45, 55, 72, 0.3);
 }
 
 .btn-secondary {
@@ -642,7 +652,7 @@ textarea {
 .btn-secondary:hover {
   background: rgba(100, 116, 139, 0.1);
   border-color: var(--slate-400);
-  transform: translateY(-1px);
+  transform: translateY(calc(-1px * var(--component-elevation)));
 }
 
 .btn-outline {
@@ -655,7 +665,7 @@ textarea {
   background: var(--slate-900);
   color: var(--white);
   border-color: var(--slate-700);
-  transform: translateY(-1px);
+  transform: translateY(calc(-1px * var(--component-elevation)));
 }
 
 .btn-ghost {
@@ -667,7 +677,7 @@ textarea {
 .btn-ghost:hover {
   background: rgba(248, 250, 252, 0.6);
   color: var(--slate-800);
-  transform: translateY(-1px);
+  transform: translateY(calc(-1px * var(--component-elevation)));
 }
 
 .btn-danger {
@@ -679,7 +689,7 @@ textarea {
 .btn-danger:hover {
   background: linear-gradient(135deg, var(--slate-900), var(--slate-800));
   border-color: var(--slate-700);
-  transform: translateY(-1px);
+  transform: translateY(calc(-1px * var(--component-elevation)));
   box-shadow: var(--shadow-lg);
 }
 
@@ -730,9 +740,9 @@ textarea {
   background: var(--glass);
   border-radius: var(--radius-lg);
   box-shadow: 
-    0 4px 0 rgba(45, 55, 72, 0.4),
-    0 8px 16px rgba(45, 55, 72, 0.3),
-    0 12px 24px rgba(45, 55, 72, 0.2);
+    0 calc(4px * var(--component-elevation)) 0 rgba(45, 55, 72, 0.4),
+    0 calc(8px * var(--component-elevation)) calc(16px * var(--component-elevation)) rgba(45, 55, 72, 0.3),
+    0 calc(12px * var(--component-elevation)) calc(24px * var(--component-elevation)) rgba(45, 55, 72, 0.2);
   border: var(--glass-border-width) solid var(--glass-border);
   overflow: hidden;
   margin-bottom: var(--space-6);
