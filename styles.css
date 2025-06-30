@@ -77,22 +77,22 @@
   --radius-lg: 0.75rem;
   --radius-full: 9999px;
   
-  /* Glass Shadows & Effects */
-  --shadow-sm: 0 1px 2px 0 var(--glass-shadow);
-  --shadow: 0 2px 4px 0 var(--glass-shadow), 0 1px 2px 0 rgba(45, 55, 72, 0.04);
-  --shadow-md: 0 4px 8px -2px var(--glass-shadow), 0 2px 4px -1px rgba(45, 55, 72, 0.04);
-  --shadow-lg: 0 8px 16px -4px var(--glass-shadow), 0 4px 8px -2px rgba(45, 55, 72, 0.04);
-  --shadow-glass: 0 8px 32px 0 rgba(45, 55, 72, 0.12), 0 2px 16px 0 rgba(45, 55, 72, 0.08);
+  /* LCD Floating Shadows - Pronounced Depth */
+  --shadow-sm: 0 2px 4px 0 rgba(45, 55, 72, 0.3);
+  --shadow: 0 4px 8px 0 rgba(45, 55, 72, 0.25), 0 2px 4px 0 rgba(45, 55, 72, 0.15);
+  --shadow-md: 0 6px 12px 0 rgba(45, 55, 72, 0.3), 0 3px 6px 0 rgba(45, 55, 72, 0.2);
+  --shadow-lg: 0 8px 16px 0 rgba(45, 55, 72, 0.35), 0 4px 8px 0 rgba(45, 55, 72, 0.25);
+  --shadow-glass: 0 12px 24px 0 rgba(45, 55, 72, 0.4), 0 6px 12px 0 rgba(45, 55, 72, 0.3);
   
   /* Glass Effects */
   --glass-backdrop: blur(12px);
   --glass-border-width: 3px;
   --lcd-glow: 0 0 20px rgba(45, 55, 72, 0.1);
   
-  /* Floating Text Effects */
-  --text-shadow-float: 0 1px 2px rgba(45, 55, 72, 0.1);
-  --text-shadow-float-strong: 0 2px 4px rgba(45, 55, 72, 0.15);
-  --component-float: 0 1px 3px rgba(45, 55, 72, 0.08);
+  /* Floating Text Effects - Pronounced */
+  --text-shadow-float: 0 2px 4px rgba(45, 55, 72, 0.4);
+  --text-shadow-float-strong: 0 3px 6px rgba(45, 55, 72, 0.5);
+  --component-float: 0 3px 6px rgba(45, 55, 72, 0.3);
   
   /* Transitions */
   --transition: all 0.2s ease-in-out;
@@ -153,8 +153,9 @@ body::before {
   border: var(--glass-border-width) solid var(--glass-border);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 2px 0 rgba(45, 55, 72, 0.2),
-    0 4px 8px rgba(45, 55, 72, 0.1);
+    0 4px 0 rgba(45, 55, 72, 0.4),
+    0 8px 16px rgba(45, 55, 72, 0.3),
+    0 12px 24px rgba(45, 55, 72, 0.15);
   position: relative;
   overflow: hidden;
 }
@@ -210,7 +211,10 @@ body::before {
   background: var(--glass);
   border-radius: var(--radius-lg);
   border: var(--glass-border-width) solid var(--glass-border);
-  box-shadow: var(--shadow-glass);
+  box-shadow: 
+    0 4px 0 rgba(45, 55, 72, 0.4),
+    0 8px 16px rgba(45, 55, 72, 0.3),
+    0 12px 24px rgba(45, 55, 72, 0.2);
   padding: var(--space-4);
   position: relative;
 }
@@ -399,19 +403,21 @@ dd {
   padding: var(--space-6);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 3px 0 var(--slate-800),
-    0 6px 12px rgba(45, 55, 72, 0.15);
+    0 5px 0 var(--slate-800),
+    0 10px 20px rgba(45, 55, 72, 0.3),
+    0 15px 30px rgba(45, 55, 72, 0.2);
   border: var(--glass-border-width) solid var(--glass-border);
   position: relative;
   transition: var(--transition);
 }
 
 .component-item:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 4px 0 var(--slate-800),
-    0 8px 16px rgba(45, 55, 72, 0.2);
+    0 7px 0 var(--slate-800),
+    0 14px 28px rgba(45, 55, 72, 0.35),
+    0 20px 40px rgba(45, 55, 72, 0.25);
 }
 
 .component-item::before {
@@ -494,13 +500,17 @@ select,
 textarea {
   width: 100%;
   padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--gray-300);
+  border: 2px solid var(--gray-600);
   border-radius: var(--radius);
   font-size: var(--text-base);
   transition: var(--transition);
   background-color: var(--white);
   text-shadow: var(--text-shadow-float);
-  box-shadow: var(--component-float);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 2px 0 rgba(45, 55, 72, 0.3),
+    0 4px 8px rgba(45, 55, 72, 0.2),
+    0 6px 12px rgba(45, 55, 72, 0.15);
 }
 
 input:focus,
@@ -563,24 +573,26 @@ textarea {
   text-shadow: var(--text-shadow-float);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 2px 0 var(--slate-800),
-    0 4px 8px rgba(45, 55, 72, 0.1);
+    0 3px 0 var(--slate-800),
+    0 6px 12px rgba(45, 55, 72, 0.3),
+    0 9px 18px rgba(45, 55, 72, 0.2);
 }
 
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 3px 0 var(--slate-800),
-    0 6px 12px rgba(45, 55, 72, 0.15);
+    0 5px 0 var(--slate-800),
+    0 10px 20px rgba(45, 55, 72, 0.35),
+    0 15px 30px rgba(45, 55, 72, 0.25);
 }
 
 .btn:active {
   transform: translateY(1px);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 1px 0 var(--slate-800),
-    0 2px 4px rgba(45, 55, 72, 0.1);
+    0 2px 0 var(--slate-800),
+    0 4px 8px rgba(45, 55, 72, 0.2);
 }
 
 .btn:disabled {
@@ -596,27 +608,29 @@ textarea {
   border-color: var(--slate-800);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 2px 0 var(--slate-900),
-    0 4px 8px rgba(45, 55, 72, 0.2);
-  text-shadow: 0 0 2px rgba(240, 255, 240, 0.3);
+    0 3px 0 var(--slate-900),
+    0 6px 12px rgba(45, 55, 72, 0.4),
+    0 9px 18px rgba(45, 55, 72, 0.3);
+  text-shadow: 0 0 4px rgba(240, 255, 240, 0.5);
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   background: var(--slate-800);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 3px 0 var(--slate-900),
-    0 6px 12px rgba(45, 55, 72, 0.25);
-  text-shadow: 0 0 3px rgba(240, 255, 240, 0.4);
+    0 5px 0 var(--slate-900),
+    0 10px 20px rgba(45, 55, 72, 0.45),
+    0 15px 30px rgba(45, 55, 72, 0.35);
+  text-shadow: 0 0 6px rgba(240, 255, 240, 0.6);
 }
 
 .btn-primary:active {
   transform: translateY(1px);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 1px 0 var(--slate-900),
-    0 2px 4px rgba(45, 55, 72, 0.15);
+    0 2px 0 var(--slate-900),
+    0 4px 8px rgba(45, 55, 72, 0.3);
 }
 
 .btn-secondary {
@@ -711,13 +725,14 @@ textarea {
   font-weight: 600;
 }
 
-/* Cards - LCD Glass Style */
+/* Cards - LCD Digital Style */
 .card {
   background: var(--glass);
-  backdrop-filter: var(--glass-backdrop);
-  -webkit-backdrop-filter: var(--glass-backdrop);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-glass);
+  box-shadow: 
+    0 4px 0 rgba(45, 55, 72, 0.4),
+    0 8px 16px rgba(45, 55, 72, 0.3),
+    0 12px 24px rgba(45, 55, 72, 0.2);
   border: var(--glass-border-width) solid var(--glass-border);
   overflow: hidden;
   margin-bottom: var(--space-6);
@@ -1027,15 +1042,16 @@ textarea {
   border-radius: var(--radius-md);
 }
 
-/* Spacing Guide - LCD Glass Style */
+/* Spacing Guide - LCD Digital Style */
 .spacing-guide {
   background: var(--glass);
-  backdrop-filter: var(--glass-backdrop);
-  -webkit-backdrop-filter: var(--glass-backdrop);
   border-radius: var(--radius-lg);
   border: var(--glass-border-width) solid var(--glass-border);
   padding: var(--space-8);
-  box-shadow: var(--shadow-glass);
+  box-shadow: 
+    0 5px 0 rgba(45, 55, 72, 0.4),
+    0 10px 20px rgba(45, 55, 72, 0.3),
+    0 15px 30px rgba(45, 55, 72, 0.2);
   position: relative;
 }
 
